@@ -120,6 +120,7 @@ $todolist = $query->fetchAll();
       <div class="card rounded shadow-sm mx-auto my-4" style="max-width: 500px">
       <div class="card-body">
         <h3 class="card-title mb-3">My Todo List</h3>
+        <h4>Please Login To Continue</h4>
         <?php if ( isset( $_SESSION['user'] ) ) : ?>
       </div>
       <?php else : ?>
