@@ -5,7 +5,7 @@ session_start();
 
 // 1. collect database info
 $host = 'localhost';
-$database_name = "classroom_management"; // connecting to which database 
+$database_name = "todolist"; // connecting to which database 
 $database_user = "root";
 $database_password = "password";
 
