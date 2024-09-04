@@ -1,4 +1,8 @@
 <?php
+
+// start session
+session_start();
+
 //backend code
 
 //1. collect data base info
@@ -45,12 +49,17 @@ $todolist = $query->fetchAll();
     </style>
   </head>
   <body>
+    
+     
+
+    <?php if ( isset( $_SESSION['user'] ) ) : ?>
     <div
       class="card rounded shadow-sm"
       style="max-width: 500px; margin: 60px auto;"
     >
       <div class="card-body">
         <h3 class="card-title mb-3">My Todo List</h3>
+        <h4>Welcome Back! <?= $_SESSION['user']['name']; ?></h4>
         <ul class="list-group">
 
         <?php foreach ($todolist as $index => $task) : ?>
@@ -103,7 +112,23 @@ $todolist = $query->fetchAll();
         </div>
       </div>
     </div>
-
+    
+    <div class="d-flex justify-content-center">
+      <a href="logout.php" class="d-flex ">Logout</a>
+    </div>
+    <?php else: ?>
+      <div class="card rounded shadow-sm mx-auto my-4" style="max-width: 500px">
+      <div class="card-body">
+        <h3 class="card-title mb-3">My Todo List</h3>
+        <?php if ( isset( $_SESSION['user'] ) ) : ?>
+      </div>
+      <?php else : ?>
+       <a href="login.php">Login</a>
+       <a href="signup.php">Sign Up</a>
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
