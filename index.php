@@ -114,7 +114,7 @@ $todolist = $query->fetchAll();
     </div>
     
     <div class="d-flex justify-content-center">
-      <a href="logout.php" class="d-flex ">Logout</a>
+      <a href="logout.php">Logout</a>
     </div>
     <?php else: ?>
       <div class="card rounded shadow-sm mx-auto my-4" style="max-width: 500px">
