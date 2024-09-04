@@ -44,7 +44,7 @@ if ( empty( $email ) || empty( $password ) ) {
             $_SESSION['user'] = $user;
 
             // 8. redirect the user back to index.php
-            header("Location: index.php");
+            header("Location: /");
                 exit;
         } else {
             echo "The password provided is incorrect";   

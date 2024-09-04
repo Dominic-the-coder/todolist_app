@@ -26,7 +26,7 @@
             'id' => $list_id
         ]);
         
-        header("Location: index.php");
+        header("Location: /");
         exit;
    }else if ($completed == 0){
         $sql = "UPDATE todolist set completed = '1' WHERE id = :id";
@@ -37,7 +37,7 @@
             'id' => $list_id
         ]);
 
-        header("Location: index.php");
+        header("Location: /");
         exit;
    }
         
