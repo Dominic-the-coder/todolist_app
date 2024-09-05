@@ -3,18 +3,9 @@
 // start session (we will be using session in this page)
 session_start();
 
-// 1. collect database info
-$host = 'localhost';
-$database_name = "todolist"; // connecting to which database 
-$database_user = "root";
-$database_password = "password";
+//connect to database
+$database = connectToDB();
 
-// 2. connect to database (PDO - PHP database object)
-$database = new PDO(
-    "mysql:host=$host;dbname=$database_name",
-    $database_user, // username
-    $database_password // password
-);
 
 // 3. get all the data from the login page form
 $email = $_POST['email'];
@@ -22,7 +13,9 @@ $password = $_POST['password'];
 
 // 4. check for error (make sure all fields are filled)
 if ( empty( $email ) || empty( $password ) ) {
-    echo "All fields are required";
+    $_SESSION['error'] = "Please fill in all the fields!";
+    header("Location: /login");
+    exit;
 } else {
      // 5. check if the email entered is in the system or not
     // 5.1 sql command
@@ -47,10 +40,10 @@ if ( empty( $email ) || empty( $password ) ) {
             header("Location: /");
                 exit;
         } else {
-            echo "The password provided is incorrect";   
+            setError( "The password provided is incorrect, please try again.", '/login' );
         }   
     } else {
-        echo 'The email provided does not exist';
+        setError( "This email is not registered inside our database.", '/login' );
     }
     
 }    
