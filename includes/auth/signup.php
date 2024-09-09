@@ -34,7 +34,7 @@ if ( empty($name) || empty( $email ) || empty( $password ) || empty( $confirm_pa
 
     // if user exists, it means the email already in-used
     if ( $user ) {
-        echo '<script>alert("The email entered already in-used! Please use another email");window.location.href="signup.php";</script>';
+        echo '<script>alert("The email entered already in-used! Please use another email");window.location.href="/signup";</script>';
     } else {
         // create the user
         // SQL Command (Recipe)
