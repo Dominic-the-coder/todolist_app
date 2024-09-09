@@ -11,13 +11,13 @@ $database = connectToDB();
        }else{
         // 2. add the student name to database
         // 2.1 (recipe)
-        $sql = 'INSERT INTO todolist (`label`) VALUES(:label)';
+        $sql = "INSERT INTO todolist (`label`,`user_id`) VALUES(:label, :user_id)";
         // 2.2 (prepare)
         $query = $database->prepare( $sql );
         // 2.3 (execute)
         $query->execute([
-            'label' => $label
-            "user_id" => $_SESSION['user']['id']
+            'label' => $label,
+            'user_id' => $_SESSION['user']['id']
         ]);
 
     // 3. redirect the user back to index.php
