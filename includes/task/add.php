@@ -17,6 +17,7 @@ $database = connectToDB();
         // 2.3 (execute)
         $query->execute([
             'label' => $label
+            "user_id" => $_SESSION['user']['id']
         ]);
 
     // 3. redirect the user back to index.php

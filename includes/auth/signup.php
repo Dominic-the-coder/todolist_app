@@ -48,7 +48,7 @@ if ( empty($name) || empty( $email ) || empty( $password ) || empty( $confirm_pa
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ]);
         // Redirect user back to index.php after the process
-        echo '<script>alert("Successfully signed up!");window.location.href="login.php"</script>';
+        echo '<script>alert("Successfully signed up!");window.location.href="/login"</script>';
         exit;
 
     }

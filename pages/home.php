@@ -1,23 +1,28 @@
 <?php
-//backend code
 
-//connect to database
-$database = connectToDB();
-
-// 3. get app data from the database
-// 3.1 - SQL command
-$sql = "SELECT * FROM todolist";
-// 3.2 - prepare SQL query
-$query = $database->prepare($sql);
-// 3.3 - execute SQL query
-$query->execute();
-// 3.4 - fetch all the results
-$todolist = $query->fetchAll();
 
 require 'parts/header.php';
 
 ?>
     <?php if ( isset( $_SESSION['user'] ) ) : ?>
+
+    <?php
+      // connect to the database
+      $database = connectToDB();
+
+      // load the data
+      // SQL command (recipe)
+      $sql = "SELECT * FROM todolist WHERE user_id = :user_id";
+      // prepare (prepare your material)
+      $query = $database->prepare( $sql );
+      // execute (cook)
+      $query->execute([
+        "user_id" => $_SESSION['user']['id']
+      ]);
+      // fetch all (eat)
+      $todolist = $query->fetchAll();
+      ?>
+      
     <div
       class="card rounded shadow-sm"
       style="max-width: 500px; margin: 60px auto;"
