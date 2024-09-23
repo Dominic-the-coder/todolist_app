@@ -1,6 +1,4 @@
-<?php
-   require 'parts/header.php';
-?>
+<?php require 'parts/header.php'; ?>
     <div class="card rounded shadow-sm mx-auto my-4" style="max-width: 500px;">
       <div class="card-body">
         <h5 class="card-title text-center mb-3 py-3 border-bottom">
@@ -10,9 +8,8 @@
         <form action="/auth/signup" method="POST">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="name" class="form-control" id="name" name="name" />
+            <input type="text" class="form-control" id="name" name="name" />
           </div>
-        <form action="" method="POST">
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" name="email" />
@@ -48,11 +45,9 @@
 
     <!-- Go back link -->
     <div class="text-center">
-      <a href="index.php" class="text-decoration-none"
+      <a href="/" class="text-decoration-none"
         ><i class="bi bi-arrow-left-circle"></i> Go back</a
       >
     </div>
 
-    <?php
-       require 'parts/footer.php';
-    ?>  
+    <?php require 'parts/header.php';
